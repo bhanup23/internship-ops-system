@@ -1,10 +1,14 @@
 from fastapi import FastAPI
-from database import engine
-from models import Base
-from routers import router
+from fastapi.staticfiles import StaticFiles
 
-Base.metadata.create_all(bind=engine)
+from app.database import engine
+from app.models import Base
+from app.routers import router
 
 app = FastAPI(title="Internship Operations Management System")
 
+Base.metadata.create_all(bind=engine)
+
 app.include_router(router)
+
+app.mount("/frontend", StaticFiles(directory="frontend", html=True), name="frontend")
