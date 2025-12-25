@@ -1,4 +1,4 @@
-const API = "http://localhost:8000";
+const API = "https://internship-ops-backend-production.up.railway.app/";
 
 function login() {
   document.getElementById("msg").innerText = "Login demo (backend auth can be added)";
